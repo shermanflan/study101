@@ -1,0 +1,97 @@
+
+/*-----------------------------------------------------
+ * General
+ *-----------------------------------------------------*/
+
+1. After a sync, there should be no dots on the upper line.
+2. A commit should be a logical grouping of stuff that you can speak
+   to during a peer review.
+
+/*-----------------------------------------------------
+ * Process to sync SBM/SBM_db from develop branch 
+ * (or any other branch)
+ *-----------------------------------------------------*/
+
+1. Do at the beginning of each sprint.
+2. Sync all local changes to current branch (i.e. commit to remote)
+3. Switch to develop branch.
+4. Sync
+5. Switch to SBM/SBM_db
+6. Sync
+7. Update from develop (select develop in the drop-down first)
+	a. At this point, the branch is sync'ed with develop on your
+	   local repository only.
+8. Sync (pushes updated SBM/SBM_db branch to remote)
+
+/*-----------------------------------------------------
+ * Conflicts with .sqlproj / .refactorlog / code merge
+ *-----------------------------------------------------*/
+
+1. In .sqlproj, .refactorlog, or code files: MERGE changes
+	a. In Notepad++, Delete <<<<<<< HEAD
+	b. In Notepad++, Delete =======
+	c. In Notepad++, >>>>>>> refs/remotes/origin/develop
+2. Save
+3. git status
+4. git add [filename]
+5. git commit -m "[comment]" // OR commit from GUI
+6. Essentially, accept both sides of the conflict
+
+To prevent going forward, in .gitattributes:
+1. *.sqlproj text merge=union eol=crlf
+2. *.refactorlog text merge=union eol=crlf
+
+/*-----------------------------------------------------
+ * New branch process
+ *-----------------------------------------------------*/
+
+1. Sync basis branch (SBM/SBM_db for example)
+2. Click reverse "Y" icon in upper left
+3. Enter story (us-######)
+4. Make sure from branch is correct (SBM/SBM_db for example)
+5. Create new branch
+	a. At this point, the branch is local only.
+6. Publish (pushes new branch to remote)
+
+/*-----------------------------------------------------
+ * Pull Request process
+ *-----------------------------------------------------*/
+
+1. Click Pull Request.
+	a. Select target branch
+	b. Add story title in description
+2. Add assignee
+3. Email peer reviewer with links to pull requests
+
+/*-----------------------------------------------------
+ * Conflicts with Pull Request (not auto-merge)
+ *-----------------------------------------------------*/
+
+Apply same logic as above. Sync target branch first. This occurs because
+commits in target branch conflict with pull branch.
+
+1. Open conflicting file in notepadd++.
+2. Remove all occurrences of '<<<<<<<<< HEAD', '>>>>>>>....' and 
+   choose the right version
+3. git status
+4. git add '<file>'
+5. git status
+6. git commit -m "<comment>"
+7. Sync (pushes merged file to remote)
+8. Auto merge in web client
+
+/*-----------------------------------------------------
+ * Remove branch
+ * Alternative is to Delete branch from gui (select both local and remote)
+ *-----------------------------------------------------*/
+
+1. Go to teams > Development > Notes > Recipe: Sync Remotes
+2. Go to root branch
+3. git pull origin (grab new stuff)
+4. git remote prune origin (remove mappings locally)
+5. clear
+6. git branch -rv (remote)
+7. git branch (local)
+8. git branch -D us-##### (this deletes local branch)
+9. Not sure how to delete remote branch (F/U with McGuffy).
+	a. Can delete from GUI
