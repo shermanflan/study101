@@ -1,0 +1,39 @@
+!!!!NOVEMBER 16th!!!!
+
+4 interviews: each will be judged independently
+
+Each will have:
+1 part technical
+	- Whiteboard!
+	- take time to understand the problem. Make sure to ask clarifying questions.
+	- 1: SQL, Data Modeling, 
+		- deal with ambiguity: Add/Subtract features
+	- 2: SQL Performance tuning
+	- 3: Database concepts, ETL
+	- 4: Coding (python), basic scenario
+	
+1 part behavioral based on Leaderships Principles
+
+	- Situational (bias for action)
+	- Behavioral
+	- When did you take a calc risk to meet a deadline
+	- When did you push back / disagree when you have a better way (against manager for example)
+		- reason is for improvement not for confrontation
+		- example when you were able to do this
+		
+TODO:
+	- Read shareholder letters
+		- Come up with metrics useful to assessing the success or failure of amazon
+		- Try to model this metrics dimensionally.
+		- 
+	- Review phone interview topics
+		- Type 2 SCD + common variants
+		- Snowflake dimensions and common use cases
+		- Table paritioning, sharding
+		- How to add a column to a large table with no downtime?
+		- OLAP vs OLTP
+		- Normalized vs Denormalized
+		- Clustered vs non-clustered indexes
+		- Dimensional design
+	- Try to model SCM examples (review Kimball book in this area)
+	- After this is over, you need to focus on knowing one full stack (especially front-end/UI)
